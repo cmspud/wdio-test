@@ -344,6 +344,5 @@ exports.config = {
   // onReload: function(oldSessionId, newSessionId) {
   // }
   // docker config - please comment the below code if not running on docker
-  // 192.168.1.6 is the IP of the local machine
   
 };
