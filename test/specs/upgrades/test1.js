@@ -1,6 +1,14 @@
 const Login = require('../../../Pages/Upgrades/Login.js');
 const homePage = require('../../../Pages/Upgrades/homePage.js');
+const client_options = require("testrail-api-client").default;
 
+const options = {
+  domain: "sptestrail.testrail.com",
+  username: "sptestrail@gmail.com",
+  password: "Testing2021",
+};
+
+const client = new client_options(options);
 
 describe('', () => {
   before(() => {
@@ -14,8 +22,16 @@ describe('', () => {
     Login.open();
     Login.login();
     browser.pause(1000);
-  //  Verifying logo is present
-  expect(browser).toHaveUrl('https://s1.demo.opensourcecms.com/orangehrm/symfony/web/index.php/dashboard');
 
+    const runId = 1;
+    const reportTests = [{ case_id: 1, status_id: 1, comment: "Test comment" }];
+    client
+      .addResultsForCases(runId, reportTests)
+      .then(() => {
+        console.log("Done");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 });

@@ -10,7 +10,7 @@ describe('', () => {
     });
   });
   // Loggin in with the credentials
-  it('C2 - Verify admin name is present', () => {
+  xit('C2 - Verify admin name is present', () => {
     Login.open();
     Login.login();
     browser.pause(2000)
