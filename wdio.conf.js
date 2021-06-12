@@ -289,17 +289,20 @@ exports.config = {
   /**
      * Function to be executed after a test (in Mocha/Jasmine).
      */
-  /** afterTest: function(test, context, { error, result, duration, passed, retries }) {
-        browser.takeScreenshot();
-    },*/
+   // afterTest: function(test, context, { error, result, duration, passed, retries }) {
+   //    //   browser.takeScreenshot();
+   //    console.log(test.title);
+      
+   //  },
 
 
   /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
      */
-  // afterSuite: function (suite) {
-  // },
+//   afterSuite: function (suite) {
+//      console.log(JSON.stringify(suite));
+//   },
   /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
@@ -316,8 +319,10 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that ran
      */
-  // after: function (result, capabilities, specs) {
-  // },
+  after: function (result, capabilities, specs) {
+     console.log(JSON.stringify(capabilities))
+     console.log("Manoj is ", result)
+  },
   /**
      * Gets executed right after terminating the webdriver session.
      * @param {Object} config wdio configuration object
